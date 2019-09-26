@@ -14,3 +14,13 @@ build_script:
   docker info
   docker version
   pwd
+- |
+    i=0; while true; do
+        echo "Iteration $(( $i+1 )): $(date)"
+        dd if=/dev/zero of="tempfile.$i" bs=1M count=1024
+        ls -al "tempfile.$i"
+        df -h
+        i=$((i + 1))
+        echo
+        sleep 1
+    done
