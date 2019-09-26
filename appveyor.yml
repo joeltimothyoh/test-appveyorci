@@ -1,5 +1,11 @@
+image: Ubuntu1604
+  
 build:
   parallel: true
 
 build_script:
-  - sh: echo hi
+- echo hi from build
+test_script:
+- echo hi from test
+deploy_script:
+- echo hi from test
