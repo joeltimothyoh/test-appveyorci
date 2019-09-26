@@ -1,0 +1,5 @@
+build:
+  parallel: true
+
+build_script:
+  - sh: echo hi
