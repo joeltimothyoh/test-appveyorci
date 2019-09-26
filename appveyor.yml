@@ -3,8 +3,17 @@ image: Ubuntu1604
 build:
   parallel: true
 
-build_script:
-- echo hi from build
+build_script: 
+- |
+  hostname
+  whoami
+  cat /etc/*release
+  lscpu
+  free
+  df -h
+  docker info
+  docker version
+  pwd
 test_script:
 - echo hi from test
 deploy_script:
