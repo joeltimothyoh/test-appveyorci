@@ -1,21 +1,50 @@
 environment:
   matrix:
-  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
+    PowerShellEdition: Desktop
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
     PowerShellEdition: Desktop
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-    PowerShellEdition: Core
+    PowerShellEdition: Desktop
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+    PowerShellEdition: Desktop
+  - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1604
+  - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1804
 
 # Disable MSBuild mode
 build: off
 
-build_script:
-- ps: |
-    whoami
-    systeminfo
-    Get-PSDrive
-    $PSVersionTable | Out-String
-    Get-Location
-- ps: |
-    Get-ChildItem env:*
-- ps: |
-    Get-Command -CommandType Application
+for:
+-
+  matrix:
+    only:
+      - image: Visual Studio 2013
+      - image: Visual Studio 2015
+      - image: Visual Studio 2017
+      - image: Visual Studio 2019
+  build_script:
+  - ps: |
+      whoami
+      systeminfo
+      Get-PSDrive
+      $PSVersionTable | Out-String
+      Get-Location
+  - ps: |
+      Get-ChildItem env:*
+  - ps: |
+      Get-Command -CommandType Application
+-
+  matrix:
+    only:
+      - image: Ubuntu1604
+      - image: Ubuntu1804
+  build_script:
+  - ps: |
+      whoami
+      cat /etc/*release
+      lscpu
+      free
+      df -h
+      pwd
+  - ps: |
+      printenv
