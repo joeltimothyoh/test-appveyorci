@@ -11,13 +11,9 @@ environment:
 #   parallel: true
 
 build_script:
-- |
-  hostname
-  whoami
-  cat /etc/*release
-  lscpu
-  free
-  df -h
-  docker info
-  docker version
-  pwd
+- ps: |
+    whoami
+    systeminfo
+    Get-PSDrive
+    $PSVersionTable | Out-String
+    Get-Location
