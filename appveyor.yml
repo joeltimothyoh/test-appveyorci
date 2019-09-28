@@ -18,10 +18,10 @@ for:
 -
   matrix:
     only:
-      - image: Visual Studio 2013
-      - image: Visual Studio 2015
-      - image: Visual Studio 2017
-      - image: Visual Studio 2019
+      - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
+      - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
   build_script:
   - ps: |
       whoami
@@ -36,8 +36,8 @@ for:
 -
   matrix:
     only:
-      - image: Ubuntu1604
-      - image: Ubuntu1804
+      - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1604
+      - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1804
   build_script:
   - ps: |
       whoami
