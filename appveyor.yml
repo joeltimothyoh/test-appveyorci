@@ -17,3 +17,5 @@ build_script:
     Get-PSDrive
     $PSVersionTable | Out-String
     Get-Location
+- ps: |
+    Get-ChildItem env:*
