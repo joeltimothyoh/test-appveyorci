@@ -5,8 +5,8 @@ environment:
   - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
     PowerShellEdition: Core
 
-# build:
-#   parallel: true
+# Disable MSBuild mode
+build: off
 
 build_script:
 - ps: |
