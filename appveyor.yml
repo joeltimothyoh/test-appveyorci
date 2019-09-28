@@ -17,3 +17,5 @@ build_script:
     Get-Location
 - ps: |
     Get-ChildItem env:*
+- ps: |
+    Get-Command -CommandType Application
