@@ -1,0 +1,23 @@
+image: Ubuntu1604
+
+environment:
+  matrix:
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+    PowerShellEdition: Desktop
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+    PowerShellEdition: Core
+
+# build:
+#   parallel: true
+
+build_script:
+- |
+  hostname
+  whoami
+  cat /etc/*release
+  lscpu
+  free
+  df -h
+  docker info
+  docker version
+  pwd
