@@ -33,6 +33,8 @@ for:
       Get-ChildItem env:*
   - ps: |
       Get-Command -CommandType Application
+  - ps: |
+      Get-Module PowershellGet -ListAvailable
 -
   matrix:
     only:
